@@ -14,48 +14,12 @@ export default function Home() {
   const [randomNumber, setRandomNumber] = useState('');
   const [winner, setWinner] = useState('');
   const [players, setPlayers] = useState<any[]>([]);
+  const baseURL = 'http://localhost:3001';
+  const contractUnavailable = 'Sorry, The contract is unvailable now!';
 
   useEffect( ()=>{
     handleContractName();
   }, [])
-
-  const handleWinner = async () => {
-/*    const instance = axios.create({ 
-      baseURL: 'http://localhost:3001'
-    })
-
-    await instance.get('/winner')
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-      });    
-*/
-
-
-    const payload = {
-      betValue,
-      betAmount,
-      address
-    }
-
-    /*
-    const instance = axios.create({ 
-      baseURL: 'http://localhost:3001'
-    })
-
-    await instance.post('/place-bet', payload )
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-      });
-    
-*/
-
-  }
 
   const handleBet = () => {
     const player = { gambler, betValue, betAmount, address }
@@ -63,21 +27,18 @@ export default function Home() {
   };
 
   const handleContractName = async () =>{
-    const instance = axios.create({ 
-      baseURL: 'http://localhost:3001'
-    })
-
-    await instance.get('/contract-name')
+    const instance = axios.create({ baseURL: baseURL })
+    
+    await instance.get('/lottery/contract-name')
       .then(response => {
-        console.log(response.data.contractName)
-        setContractName(response.data.contractName)
+        setContractName(response.data)
       })
       .catch(error => {
         console.log(error)
       });
   }
 
-  const getContractName = () => contractName  ? contractName : 'Sorry, The contract is unvailable now!';
+  const getContractName = () => contractName  ? contractName : contractUnavailable;
 
   const getPlayers = () =>{
     return ( 
@@ -165,7 +126,7 @@ export default function Home() {
           <Button 
             sx={{width: '248px', padding: '2px'}}
             variant="contained"
-            onClick={handleWinner}
+            onClick={()=>{}}
           >
             Get Winner
           </Button>
