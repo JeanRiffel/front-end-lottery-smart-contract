@@ -1,0 +1,21 @@
+.customGrid {
+  border: 2px;
+  border-style: solid;
+  border-color: rgb(26, 118, 224);
+  border-radius: 8px;
+    
+  &__head {
+    background-color: rgb(59, 59, 180);
+  }
+
+  &__head_cells {
+    color: white;
+    font-size: medium;
+    border-style: solid;
+  }
+
+  &__row_cells {
+    color: black;
+    font-size: medium;
+  }
+}
