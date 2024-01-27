@@ -15,7 +15,7 @@ export default function Home() {
   const [winner, setWinner] = useState('');
   const [players, setPlayers] = useState<any[]>([]);
   const baseURL = 'http://localhost:3001';
-  const contractUnavailable = 'Sorry, The contract is unvailable now!';
+  const contractUnavailable = 'Sorry, The contract is unavailable now!';
 
   useEffect( ()=>{
     handleContractName();
