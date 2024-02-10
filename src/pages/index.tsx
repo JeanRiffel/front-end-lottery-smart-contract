@@ -2,20 +2,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import LotteryTemplate from '@/components/templates/LotteryTemplate';
 import { contractStatus } from '@/utils';
+import { BetContextProvider } from '@/contexts/BetContext';
 
 export default function Home() {
-  const [betValue, setBetValue] = useState('');
-  const [betAmount, setBetAmount] = useState('');
-  const [gambler, setGambler] = useState('');
-  const [address, setAddress] = useState('')
   const [contractName, setContractName] = useState({});
-  const [randomNumber, setRandomNumber] = useState('');
-  const [winner, setWinner] = useState('');
-  const [players, setPlayers] = useState<any[]>([]);
   const baseURL = 'http://localhost:3001';
-  
+
   useEffect( ()=>{
-    handleContractName();
+    handleContractName();    
   }, [])
 
   const handleContractName = async () =>{
@@ -31,28 +25,13 @@ export default function Home() {
       });
   }
 
-
-  const handleBet = () => {
-    const player = { gambler, betValue, betAmount, address }
-    setPlayers((prevPlayers) => [...prevPlayers, player,]);
-  };
-
-  const handleClearPlayers = () => {
-    setPlayers([])
-  }
-
   return (
     <div>
-      <LotteryTemplate 
-        contractName={contractName}
-        handleBet={handleBet}
-        handleClearPlayers={handleClearPlayers}
-        setGambler={setGambler}
-        setBetValue={setBetValue}
-        setBetAmount={setBetAmount}
-        setAddress={setAddress}
-        players={players}
-      />
+      <BetContextProvider>
+        <LotteryTemplate 
+          contractName={contractName}
+        />
+      </BetContextProvider>
     </div>
   );
 }
