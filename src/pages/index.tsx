@@ -25,20 +25,6 @@ export default function Home() {
       });
   }
 
-  const handleBet = () => {
-    const player = { gambler, betValue, betAmount, address }
-    if (!gambler) return
-    if (!betValue) return
-    if (!betAmount) return
-    if (!address) return
-
-    setPlayers((prevPlayers) => [...prevPlayers, player,]);
-  };
-
-  const handleClearPlayers = () => {
-    setPlayers([])
-  }
-
   return (
     <div>
       <BetContextProvider>
