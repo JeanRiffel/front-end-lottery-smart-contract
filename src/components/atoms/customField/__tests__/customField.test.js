@@ -1,12 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import CustomField from '../customField'
 
-test('render customField', () => {
-  const labelField = 'My Field';
-  render(<CustomField 
-    label={labelField} 
-  />);
-  const labelElement = screen.getByLabelText(labelField);
+describe('customField', () => {
+  it('Should render customField', ()=>{
+    const labelField = 'My Field';
+    render(<CustomField 
+      label={labelField} 
+    />);
+    const labelElementRendered = screen.getByLabelText(labelField);
+  
+    expect(labelElementRendered).toBeInTheDocument();  
+  });
 
-  expect(labelElement).toBeInTheDocument();  
 });
