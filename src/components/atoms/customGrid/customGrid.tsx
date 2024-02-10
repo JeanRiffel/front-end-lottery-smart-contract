@@ -5,9 +5,8 @@ TableRow, Paper } from '@mui/material';
 import style from './CustomGrid.module.scss'
 
 const CustomGrid = (props: any) => {
-
   return (
-    <Box className={style.customGrid}>
+    <Box className={style.customGrid}>      
       <TableContainer  component={Paper}>
         <Table
           className={style.customGrid__table}
