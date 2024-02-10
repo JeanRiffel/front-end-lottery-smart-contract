@@ -37,6 +37,9 @@ const LotteryForm: React.FC = (props: any)=> {
 
   const handleBet = () => {
     const player = { gambler, betValue, betAmount, address }
+    
+    if (!gambler || !betValue || !betAmount || !address) return
+    
     setPlayers((prevPlayers) => [...prevPlayers, player,]);
   };
 
