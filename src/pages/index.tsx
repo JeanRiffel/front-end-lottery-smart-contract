@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import LotteryTemplate from '@/components/templates/LotteryTemplate';
+import LotteryTemplate from '@/components/templates/lottery/LotteryTemplate';
 import { contractStatus } from '@/utils';
 import { BetContextProvider } from '@/contexts/BetContext';
 

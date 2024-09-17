@@ -1,0 +1,18 @@
+@import '../../../styles/global.scss';
+
+.header {
+  &__card {
+    display: flex;
+    padding: 40px;
+    background-color: $general_blue;
+    border-radius: 8px;
+  }
+  
+  &__title{
+    font-size: 36px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: $white;
+  }
+}
+
+
