@@ -3,13 +3,12 @@ import CustomField from '../../atoms/customField/customField';
 import CustomButton from '../../atoms/customButton/customButton';
 import CustomGrid from '../../atoms/customGrid/customGrid';
 import index from '../../pages/index.module.css';
-import Alert from '@mui/material/Alert';
+
 import styles from './LotteryForm.module.scss'
 import BetContext from '@/contexts/BetContext'
 import { Box } from '@mui/material';
 
 const LotteryForm: React.FC = (props: any)=> {
-  const { contractName } = props;
 
   const { 
     gambler, setGambler, 
@@ -47,18 +46,9 @@ const LotteryForm: React.FC = (props: any)=> {
     setPlayers([])
   };
 
-  const renderAlert = ()=>{
-    const contractStatusCode = contractName.code;
-    const contractStatusMessage = contractName.message;
-
-    return contractStatusCode === 1 ? 
-      <Alert severity="success">{contractStatusMessage}</Alert> :
-      <Alert severity="error">{contractStatusMessage}</Alert>;   
-  }
   
   return (
     <div>      
-        {renderAlert()}
         <Box className={styles.lotteryForm__fields}>
           <CustomField 
             label="Gambler" 
